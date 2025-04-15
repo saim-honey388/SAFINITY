@@ -1,0 +1,43 @@
+#:kivy 2.0.0
+
+<LoginScreen>:
+    email_phone: email_phone
+    password: password
+    
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+        
+        Label:
+            text: 'Login to Safinity'
+            font_size: '24sp'
+            size_hint_y: None
+            height: '50dp'
+        
+        TextInput:
+            id: email_phone
+            hint_text: 'Email or Phone Number'
+            multiline: False
+            size_hint_y: None
+            height: '40dp'
+        
+        TextInput:
+            id: password
+            hint_text: 'Password'
+            password: True
+            multiline: False
+            size_hint_y: None
+            height: '40dp'
+        
+        Button:
+            text: 'Login'
+            size_hint_y: None
+            height: '40dp'
+            on_press: root.login()
+        
+        Button:
+            text: 'Don\'t have an account? Sign Up'
+            size_hint_y: None
+            height: '40dp'
+            on_press: root.go_to_signup() 

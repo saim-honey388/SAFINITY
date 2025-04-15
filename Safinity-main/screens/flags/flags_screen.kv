@@ -1,0 +1,195 @@
+#:kivy 2.2.1
+
+<CountryButton@Button>:
+    size_hint_y: None
+    height: dp(60)
+    background_color: 0, 0, 0, 0
+    color: 0, 0, 0, 1
+    font_size: '16sp'
+    canvas.before:
+        Color:
+            rgba: (0.95, 0.95, 0.95, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [10]
+
+<ScrollableSpinnerOption@SpinnerOption>:
+    background_normal: ''
+    background_color: (1, 1, 1, 1)
+    color: (0, 0, 0, 1)
+    height: dp(50)
+    font_size: '16sp'
+    text_size: self.width - dp(60), None
+    halign: 'left'
+    valign: 'middle'
+    padding: [dp(40), dp(10)]
+    size_hint_y: None
+    size_hint_x: None
+    width: dp(600)
+    canvas.before:
+        Color:
+            rgba: (0.9, 0.9, 0.9, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            pos: [self.pos[0] + 1, self.pos[1] + 1]
+            size: [self.size[0] - 2, self.size[1] - 2]
+
+<CountrySpinnerOption@SpinnerOption>:
+    background_normal: ''
+    background_color: (1, 1, 1, 1)
+    color: (0, 0, 0, 1)
+    height: dp(60)
+    size_hint_y: None
+    size_hint_x: None
+    width: dp(600)
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        Color:
+            rgba: (0.9, 0.9, 0.9, 1)
+        Line:
+            rectangle: [self.pos[0], self.pos[1], self.size[0], self.size[1]]
+            width: 1
+
+<ScrollableSpinner>:
+    background_normal: ''
+    background_color: (1, 1, 1, 1)
+    color: (0, 0, 0, 1)
+    size_hint: (None, None)
+    size: (400, 50)
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+    font_size: '16sp'
+    text: 'Select country'
+    option_cls: 'ScrollableSpinnerOption'
+
+<FlagsScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(5)
+
+        Image:
+            source: 'logo.png'
+            size_hint: None, None
+            size: dp(80), dp(80)
+            pos_hint: {'center_x': 0.5}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text: "SAFINITY"
+            font_size: '24sp'
+            bold: True
+            halign: 'center'
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: dp(35)
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: dp(2)
+            pos_hint: {'center_x': 0.5}
+
+            Label:
+                text: "Let's get started."
+                font_size: '16sp'
+                bold: True
+                halign: 'center'
+                color: 0, 0, 0, 1
+                size_hint_y: None
+                height: dp(25)
+
+            Label:
+                text: "What country are you in?"
+                font_size: '14sp'
+                halign: 'center'
+                color: 0.223, 0.510, 0.478, 1
+                size_hint_y: None
+                height: dp(25)
+
+        Widget:
+            size_hint_y: 0.3
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: None, None
+            size: dp(300), dp(50)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint_y: None
+            height: dp(60)
+            spacing: dp(10)
+
+            AsyncImage:
+                id: selected_flag
+                source: ''
+                size_hint: None, None
+                size: dp(30), dp(20)
+                allow_stretch: True
+                keep_ratio: True
+                pos_hint: {'center_y': 0.5}
+
+            ScrollableSpinner:
+                id: country_spinner
+                text: "Select Country"
+                size_hint_x: 0.8
+                size_hint_y: None
+                height: 44
+                background_normal: ''
+                background_color: (0, 0, 0, 0)
+                color: (0, 0, 0, 1)
+                on_text: root.on_country_selected(self.text)
+                canvas.before:
+                    Color:
+                        rgba: (0.223, 0.510, 0.478, 1)
+                    Line:
+                        width: 1
+                        points: self.x - dp(35), self.y, self.x + self.width + dp(35), self.y
+
+        Label:
+            text: "Important note: Please set up the app in the country where you plan to use the device."
+            font_size: '12sp'
+            halign: 'center'
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: dp(30)
+
+        Widget:
+            size_hint_y: 0.05
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: None, None
+            size: dp(200), dp(50)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+            Button:
+                text: "Continue"
+                size_hint: None, None
+                size: dp(200), dp(50)
+                background_color: 0, 0, 0, 0
+                color: (0, 0, 0, 1)
+                canvas.before:
+                    Color:
+                        rgba: (0.223, 0.510, 0.478, 1)
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [30]
+                on_release: root.on_continue()

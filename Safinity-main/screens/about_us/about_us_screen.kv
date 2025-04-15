@@ -1,0 +1,277 @@
+#:kivy 2.0.0
+
+<AboutUsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # White background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        
+        # Top Bar with Back Button
+        BoxLayout:
+            size_hint_y: None
+            height: '60dp'
+            padding: '10dp'
+            spacing: '10dp'
+            canvas.before:
+                Color:
+                    rgba: 0.223, 0.510, 0.478, 1  # Safinity green color
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            
+            # Back Button
+            Button:
+                size_hint_x: None
+                width: '40dp'
+                background_normal: ''
+                background_color: 0, 0, 0, 0
+                on_release: root.on_back_press()
+                
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    Line:
+                        width: 2
+                        points: [self.x + self.width * 0.25, self.y + self.height * 0.5, self.x + self.width * 0.75, self.y + self.height * 0.25, self.x + self.width * 0.75, self.y + self.height * 0.75]
+            
+            # Screen Title
+            Label:
+                text: 'About Us'
+                color: 1, 1, 1, 1
+                font_size: '20sp'
+                bold: True
+                halign: 'center'
+            
+            # Empty widget for spacing
+            Widget:
+                size_hint_x: None
+                width: '40dp'
+        
+        # Main Content
+        ScrollView:
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                padding: '20dp'
+                spacing: '20dp'
+                
+                # Logo
+                Image:
+                    source: 'assets/logo.png'
+                    size_hint: None, None
+                    size: '150dp', '150dp'
+                    pos_hint: {'center_x': 0.5}
+                    allow_stretch: True
+                    keep_ratio: True
+                
+                # App Name
+                Label:
+                    text: 'SAFINITY'
+                    font_size: '28sp'
+                    bold: True
+                    color: 0.223, 0.510, 0.478, 1
+                    size_hint_y: None
+                    height: '40dp'
+                    halign: 'center'
+                
+                # Version
+                Label:
+                    text: 'Version 1.0.0'
+                    font_size: '16sp'
+                    color: 0.3, 0.3, 0.3, 1
+                    size_hint_y: None
+                    height: '30dp'
+                    halign: 'center'
+                
+                # Description
+                Label:
+                    text: 'Safinity is a smart safety solution designed to offer peace of mind through discreet and instant emergency communication. Created with a focus on women\'s safety and individual protection, our wearable device and mobile app work together to deliver reliable SOS alerts in moments of need.'
+                    font_size: '16sp'
+                    color: 0.3, 0.3, 0.3, 1
+                    size_hint_y: None
+                    height: self.texture_size[1] + dp(20)
+                    text_size: self.width, None
+                    halign: 'center'
+                    valign: 'middle'
+                
+                # Additional Description
+                Label:
+                    text: 'Our product allows users to send location-based emergency alerts to pre-set contacts through single, double, or triple button presses—each indicating a specific level of urgency. Whether it\'s confirming safe arrival or signaling distress, Safinity ensures your voice is heard—quietly, effectively, and immediately.'
+                    font_size: '16sp'
+                    color: 0.3, 0.3, 0.3, 1
+                    size_hint_y: None
+                    height: self.texture_size[1] + dp(20)
+                    text_size: self.width, None
+                    halign: 'center'
+                    valign: 'middle'
+                
+                # Mission Statement
+                Label:
+                    text: 'Our Mission'
+                    font_size: '20sp'
+                    bold: True
+                    color: 0.223, 0.510, 0.478, 1
+                    size_hint_y: None
+                    height: '40dp'
+                    halign: 'center'
+                
+                Label:
+                    text: 'To empower individuals by providing smart, accessible, and dependable safety technology that enhances personal protection in everyday life.'
+                    font_size: '16sp'
+                    color: 0.3, 0.3, 0.3, 1
+                    size_hint_y: None
+                    height: self.texture_size[1] + dp(20)
+                    text_size: self.width, None
+                    halign: 'center'
+                    valign: 'middle'
+                
+                # Features Section
+                Label:
+                    text: 'Key Features'
+                    font_size: '20sp'
+                    bold: True
+                    color: 0.223, 0.510, 0.478, 1
+                    size_hint_y: None
+                    height: '40dp'
+                    halign: 'center'
+                
+                # Feature 1
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: feature1_label.height + feature1_desc.height
+                    padding: '10dp'
+                    
+                    Label:
+                        id: feature1_label
+                        text: 'Instant SOS Communication'
+                        font_size: '18sp'
+                        bold: True
+                        color: 0.3, 0.3, 0.3, 1
+                        size_hint_y: None
+                        height: '30dp'
+                        halign: 'left'
+                    
+                    Label:
+                        id: feature1_desc
+                        text: 'Send emergency alerts through single, double, or triple button presses—each indicating a specific level of urgency.'
+                        font_size: '16sp'
+                        color: 0.3, 0.3, 0.3, 1
+                        size_hint_y: None
+                        height: self.texture_size[1] + dp(10)
+                        text_size: self.width, None
+                        halign: 'left'
+                
+                # Feature 2
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: feature2_label.height + feature2_desc.height
+                    padding: '10dp'
+                    
+                    Label:
+                        id: feature2_label
+                        text: 'Real-time Location Sharing'
+                        font_size: '18sp'
+                        bold: True
+                        color: 0.3, 0.3, 0.3, 1
+                        size_hint_y: None
+                        height: '30dp'
+                        halign: 'left'
+                    
+                    Label:
+                        id: feature2_desc
+                        text: 'Share your precise location with trusted contacts during emergencies or to confirm safe arrival.'
+                        font_size: '16sp'
+                        color: 0.3, 0.3, 0.3, 1
+                        size_hint_y: None
+                        height: self.texture_size[1] + dp(10)
+                        text_size: self.width, None
+                        halign: 'left'
+                
+                # Feature 3
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: feature3_label.height + feature3_desc.height
+                    padding: '10dp'
+                    
+                    Label:
+                        id: feature3_label
+                        text: 'Simple and Discreet Wearable Tech'
+                        font_size: '18sp'
+                        bold: True
+                        color: 0.3, 0.3, 0.3, 1
+                        size_hint_y: None
+                        height: '30dp'
+                        halign: 'left'
+                    
+                    Label:
+                        id: feature3_desc
+                        text: 'Our wearable device is designed to be unobtrusive yet accessible when you need it most.'
+                        font_size: '16sp'
+                        color: 0.3, 0.3, 0.3, 1
+                        size_hint_y: None
+                        height: self.texture_size[1] + dp(10)
+                        text_size: self.width, None
+                        halign: 'left'
+                
+                # Feature 4
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: feature4_label.height + feature4_desc.height if hasattr(self, 'ids') and 'feature4_label' in self.ids and 'feature4_desc' in self.ids else dp(70)
+                    padding: '10dp'
+                    
+                    Label:
+                        id: feature4_label
+                        text: 'Secure User Data Handling'
+                        font_size: '18sp'
+                        bold: True
+                        color: 0.3, 0.3, 0.3, 1
+                        size_hint_y: None
+                        height: '30dp'
+                        halign: 'left'
+                    
+                    Label:
+                        id: feature4_desc
+                        text: 'Your personal information and location data are protected with industry-standard security protocols.'
+                        font_size: '16sp'
+                        color: 0.3, 0.3, 0.3, 1
+                        size_hint_y: None
+                        height: self.texture_size[1] + dp(10)
+                        text_size: self.width, None
+                        halign: 'left'
+                
+                # Contact Information
+                Label:
+                    text: 'Contact Us'
+                    font_size: '20sp'
+                    bold: True
+                    color: 0.223, 0.510, 0.478, 1
+                    size_hint_y: None
+                    height: '40dp'
+                    halign: 'center'
+                
+                Label:
+                    text: 'Email: support@safinity.com\nWebsite: www.safinity.com'
+                    font_size: '16sp'
+                    color: 0.3, 0.3, 0.3, 1
+                    size_hint_y: None
+                    height: self.texture_size[1] + dp(20)
+                    text_size: self.width, None
+                    halign: 'center'
+                
+                # Copyright
+                Label:
+                    text: '© 2023 Safinity. All rights reserved.'
+                    font_size: '14sp'
+                    color: 0.5, 0.5, 0.5, 1
+                    size_hint_y: None
+                    height: '40dp'
+                    halign: 'center'

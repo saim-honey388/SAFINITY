@@ -1,0 +1,76 @@
+<AccidentalPressScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(10)
+        
+        BoxLayout:
+            size_hint_y: None
+            height: dp(50)
+            spacing: dp(10)
+            
+            Button:
+                size_hint_x: None
+                width: dp(50)
+                background_normal: 'assets/back_arrow.jpg'
+                background_down: 'assets/back_arrow.jpg'
+                on_release: root.on_back_press()
+            
+            Label:
+                text: 'Verify Accidental Press'
+                font_size: dp(20)
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+                bold: True
+        
+        Label:
+            size_hint_y: None
+            height: dp(60)
+            text: root.status_message
+            font_size: dp(16)
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.size
+        
+        BoxLayout:
+            orientation: 'vertical'
+            padding: dp(20)
+            spacing: dp(15)
+            
+            Label:
+                size_hint_y: None
+                height: dp(30)
+                text: 'Please verify your identity to confirm this was an accidental press'
+                font_size: dp(14)
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+            
+            TextInput:
+                id: phone_input
+                size_hint_y: None
+                height: dp(50)
+                hint_text: 'Phone Number'
+                multiline: False
+                input_type: 'phone'
+                padding: [dp(10), dp(10), dp(10), dp(10)]
+            
+            TextInput:
+                id: password_input
+                size_hint_y: None
+                height: dp(50)
+                hint_text: 'Password'
+                password: True
+                multiline: False
+                padding: [dp(10), dp(10), dp(10), dp(10)]
+            
+            Button:
+                size_hint_y: None
+                height: dp(50)
+                text: 'Verify & Send Notification'
+                background_color: [0.223, 0.510, 0.478, 1]
+                on_release: root.verify_user()
+        
+        Widget:
+            # Spacer

@@ -1,0 +1,94 @@
+#:kivy 2.2.1
+
+<SignupSelectionScreen>:
+    name: 'signup_selection'
+    canvas.before:
+        Color:
+            rgba: 0.223, 0.510, 0.478, 1  # Dark green background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+
+        # Add logo section
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 0.3
+            spacing: dp(10)
+            
+            AsyncImage:
+                source: 'logo.png'
+                size_hint: None, None
+                size: dp(100), dp(100)
+                pos_hint: {'center_x': 0.5}
+                allow_stretch: True
+                keep_ratio: True
+                on_error: self.source = ''  # Clear source on error
+
+            Label:
+                text: "SAFINITY"
+                font_size: '24sp'
+                bold: True
+                color: 0, 0, 0, 1
+                size_hint_y: None
+                height: dp(30)
+
+        Widget:
+            size_hint_y: 0.2
+
+        Label:
+            text: 'Choose Sign Up Method'
+            font_size: '24sp'
+            bold: True
+            color: 1, 1, 1, 1  # White text
+            size_hint_y: None
+            height: '50dp'
+
+        Widget:
+            size_hint_y: 0.1
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: '150dp'
+            spacing: '10dp'
+
+            Button:
+                text: 'Sign Up with Phone'
+                size_hint_y: None
+                height: '50dp'
+                background_normal: ''
+                background_color: 1, 1, 1, 1
+                color: 0.223, 0.510, 0.478, 1
+                on_press: root.go_to_phone_signup()
+                font_size: '16sp'
+                bold: True
+
+            Button:
+                text: 'Sign Up with Email'
+                size_hint_y: None
+                height: '50dp'
+                background_normal: ''
+                background_color: 1, 1, 1, 1
+                color: 0.223, 0.510, 0.478, 1
+                on_press: root.go_to_email_signup()
+                font_size: '16sp'
+                bold: True
+
+            Button:
+                text: 'Back to Login'
+                size_hint_y: None
+                height: '50dp'
+                background_normal: ''
+                background_color: 1, 1, 1, 1
+                color: 0.223, 0.510, 0.478, 1
+                on_press: root.back_to_login()
+                font_size: '16sp'
+                bold: True
+
+        Widget:
+            size_hint_y: 0.2 

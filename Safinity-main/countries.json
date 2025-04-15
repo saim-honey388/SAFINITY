@@ -1,0 +1,244 @@
+{
+  "countries": [
+    {
+      "name": "Afghanistan",
+      "code": "AF",
+      "emoji": "🇦🇫",
+      "unicode": "U+1F1E6 U+1F1EB",
+      "dial_code": "+93",
+      "image": "https://flagpedia.net/data/flags/h80/af.png"
+    },
+    {
+      "name": "Albania",
+      "code": "AL",
+      "emoji": "🇦🇱",
+      "unicode": "U+1F1E6 U+1F1F1",
+      "dial_code": "+355",
+      "image": "https://flagpedia.net/data/flags/h80/al.png"
+    },
+    {
+      "name": "Algeria",
+      "code": "DZ",
+      "emoji": "🇩🇿",
+      "unicode": "U+1F1E9 U+1F1FF",
+      "dial_code": "+213",
+      "image": "https://flagpedia.net/data/flags/h80/dz.png"
+    },
+    {
+      "name": "Argentina",
+      "code": "AR",
+      "emoji": "🇦🇷",
+      "unicode": "U+1F1E6 U+1F1F7",
+      "dial_code": "+54",
+      "image": "https://flagpedia.net/data/flags/h80/ar.png"
+    },
+    {
+      "name": "Australia",
+      "code": "AU",
+      "emoji": "🇦🇺",
+      "unicode": "U+1F1E6 U+1F1FA",
+      "dial_code": "+61",
+      "image": "https://flagpedia.net/data/flags/h80/au.png"
+    },
+    {
+      "name": "Austria",
+      "code": "AT",
+      "emoji": "🇦🇹",
+      "unicode": "U+1F1E6 U+1F1F9",
+      "dial_code": "+43",
+      "image": "https://flagpedia.net/data/flags/h80/at.png"
+    },
+    {
+      "name": "Bangladesh",
+      "code": "BD",
+      "emoji": "🇧🇩",
+      "unicode": "U+1F1E7 U+1F1E9",
+      "dial_code": "+880",
+      "image": "https://flagpedia.net/data/flags/h80/bd.png"
+    },
+    {
+      "name": "Belgium",
+      "code": "BE",
+      "emoji": "🇧🇪",
+      "unicode": "U+1F1E7 U+1F1EA",
+      "dial_code": "+32",
+      "image": "https://flagpedia.net/data/flags/h80/be.png"
+    },
+    {
+      "name": "Brazil",
+      "code": "BR",
+      "emoji": "🇧🇷",
+      "unicode": "U+1F1E7 U+1F1F7",
+      "dial_code": "+55",
+      "image": "https://flagpedia.net/data/flags/h80/br.png"
+    },
+    {
+      "name": "Canada",
+      "code": "CA",
+      "emoji": "🇨🇦",
+      "unicode": "U+1F1E8 U+1F1E6",
+      "dial_code": "+1",
+      "image": "https://flagpedia.net/data/flags/h80/ca.png"
+    },
+    {
+      "name": "China",
+      "code": "CN",
+      "emoji": "🇨🇳",
+      "unicode": "U+1F1E8 U+1F1F3",
+      "dial_code": "+86",
+      "image": "https://flagpedia.net/data/flags/h80/cn.png"
+    },
+    {
+      "name": "France",
+      "code": "FR",
+      "emoji": "🇫🇷",
+      "unicode": "U+1F1EB U+1F1F7",
+      "dial_code": "+33",
+      "image": "https://flagpedia.net/data/flags/h80/fr.png"
+    },
+    {
+      "name": "Germany",
+      "code": "DE",
+      "emoji": "🇩🇪",
+      "unicode": "U+1F1E9 U+1F1EA",
+      "dial_code": "+49",
+      "image": "https://flagpedia.net/data/flags/h80/de.png"
+    },
+    {
+      "name": "India",
+      "code": "IN",
+      "emoji": "🇮🇳",
+      "unicode": "U+1F1EE U+1F1F3",
+      "dial_code": "+91",
+      "image": "https://flagpedia.net/data/flags/h80/in.png"
+    },
+    {
+      "name": "Indonesia",
+      "code": "ID",
+      "emoji": "🇮🇩",
+      "unicode": "U+1F1EE U+1F1E9",
+      "dial_code": "+62",
+      "image": "https://flagpedia.net/data/flags/h80/id.png"
+    },
+    {
+      "name": "Italy",
+      "code": "IT",
+      "emoji": "🇮🇹",
+      "unicode": "U+1F1EE U+1F1F9",
+      "dial_code": "+39",
+      "image": "https://flagpedia.net/data/flags/h80/it.png"
+    },
+    {
+      "name": "Japan",
+      "code": "JP",
+      "emoji": "🇯🇵",
+      "unicode": "U+1F1EF U+1F1F5",
+      "dial_code": "+81",
+      "image": "https://flagpedia.net/data/flags/h80/jp.png"
+    },
+    {
+      "name": "Mexico",
+      "code": "MX",
+      "emoji": "🇲🇽",
+      "unicode": "U+1F1F2 U+1F1FD",
+      "dial_code": "+52",
+      "image": "https://flagpedia.net/data/flags/h80/mx.png"
+    },
+    {
+      "name": "Netherlands",
+      "code": "NL",
+      "emoji": "🇳🇱",
+      "unicode": "U+1F1F3 U+1F1F1",
+      "dial_code": "+31",
+      "image": "https://flagpedia.net/data/flags/h80/nl.png"
+    },
+    {
+      "name": "Pakistan",
+      "code": "PK",
+      "emoji": "🇵🇰",
+      "unicode": "U+1F1F5 U+1F1F0",
+      "dial_code": "+92",
+      "image": "https://flagpedia.net/data/flags/h80/pk.png"
+    },
+    {
+      "name": "Russia",
+      "code": "RU",
+      "emoji": "🇷🇺",
+      "unicode": "U+1F1F7 U+1F1FA",
+      "dial_code": "+7",
+      "image": "https://flagpedia.net/data/flags/h80/ru.png"
+    },
+    {
+      "name": "Saudi Arabia",
+      "code": "SA",
+      "emoji": "🇸🇦",
+      "unicode": "U+1F1F8 U+1F1E6",
+      "dial_code": "+966",
+      "image": "https://flagpedia.net/data/flags/h80/sa.png"
+    },
+    {
+      "name": "South Africa",
+      "code": "ZA",
+      "emoji": "🇿🇦",
+      "unicode": "U+1F1FF U+1F1E6",
+      "dial_code": "+27",
+      "image": "https://flagpedia.net/data/flags/h80/za.png"
+    },
+    {
+      "name": "Spain",
+      "code": "ES",
+      "emoji": "🇪🇸",
+      "unicode": "U+1F1EA U+1F1F8",
+      "dial_code": "+34",
+      "image": "https://flagpedia.net/data/flags/h80/es.png"
+    },
+    {
+      "name": "Sweden",
+      "code": "SE",
+      "emoji": "🇸🇪",
+      "unicode": "U+1F1F8 U+1F1EA",
+      "dial_code": "+46",
+      "image": "https://flagpedia.net/data/flags/h80/se.png"
+    },
+    {
+      "name": "Switzerland",
+      "code": "CH",
+      "emoji": "🇨🇭",
+      "unicode": "U+1F1E8 U+1F1ED",
+      "dial_code": "+41",
+      "image": "https://flagpedia.net/data/flags/h80/ch.png"
+    },
+    {
+      "name": "Turkey",
+      "code": "TR",
+      "emoji": "🇹🇷",
+      "unicode": "U+1F1F9 U+1F1F7",
+      "dial_code": "+90",
+      "image": "https://flagpedia.net/data/flags/h80/tr.png"
+    },
+    {
+      "name": "United Arab Emirates",
+      "code": "AE",
+      "emoji": "🇦🇪",
+      "unicode": "U+1F1E6 U+1F1EA",
+      "dial_code": "+971",
+      "image": "https://flagpedia.net/data/flags/h80/ae.png"
+    },
+    {
+      "name": "United Kingdom",
+      "code": "GB",
+      "emoji": "🇬🇧",
+      "unicode": "U+1F1EC U+1F1E7",
+      "dial_code": "+44",
+      "image": "https://flagpedia.net/data/flags/h80/gb.png"
+    },
+    {
+      "name": "United States",
+      "code": "US",
+      "emoji": "🇺🇸",
+      "unicode": "U+1F1FA U+1F1F8",
+      "dial_code": "+1",
+      "image": "https://flagpedia.net/data/flags/h80/us.png"
+    }
+  ]
+} 
