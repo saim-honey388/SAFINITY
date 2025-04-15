@@ -1,1 +1,0 @@
-# This file makes the signup directory a Python package 
