@@ -1,0 +1,208 @@
+#:kivy 2.0.0
+#:import utils kivy.utils
+
+<TerminateAccountScreen>:
+    name: 'terminate_account'
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(15)
+        canvas.before:
+            Color:
+                rgba: 0.95, 0.95, 0.95, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        
+        # Header with back button
+        BoxLayout:
+            size_hint_y: None
+            height: dp(60)
+            spacing: dp(10)
+            padding: [0, 10, 0, 0]
+            
+            Button:
+                id: back_button
+                text: "←"
+                font_size: dp(32)
+                size_hint: None, None
+                size: dp(60), dp(60)
+                background_normal: ''
+                background_color: 0.223, 0.510, 0.478, 1
+                color: 1, 1, 1, 1
+                on_release: root.on_back_press()
+                canvas.before:
+                    Color:
+                        rgba: 0.223, 0.510, 0.478, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [15]
+                canvas.after:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                        source: 'assets/back_arrow.png' if 'assets/back_arrow.png' in self.parent.parent.parent.ids else None
+            
+            Label:
+                text: "Terminate Account"
+                font_size: dp(24)
+                bold: True
+                color: 0.1, 0.4, 0.1, 1
+                size_hint_y: None
+                height: dp(60)
+                halign: "left"
+                valign: "middle"
+                text_size: self.size
+
+        
+        # Warning icon
+        Image:
+            source: "assets/logo.png"  # Use app logo
+            size_hint: None, None
+            size: dp(120), dp(120)
+            pos_hint: {"center_x": 0.5}
+            background_color: 0.95, 0.95, 0.95, 1
+        # Warning title
+        Label:
+            text: "DANGER ZONE"
+            font_size: dp(24)
+            bold: True
+            color: 0.1, 0.4, 0.1, 1  # Dark green text
+            size_hint_y: None
+            height: dp(40)
+            halign: "center"
+        
+        # Warning description
+        Label:
+            text: "This action will permanently delete your account and all associated data. This cannot be undone."
+            font_size: dp(16)
+            color: 0.1, 0.3, 0.1, 1  # Light dark green text
+            text_size: self.width, None
+            halign: "center"
+            valign: "top"
+            size_hint_y: None
+            height: dp(80)
+        
+        # Error message display
+        Label:
+            id: error_label
+            text: root.error_message
+            size_hint_y: None
+            height: dp(50) if root.error_message else dp(0)
+            opacity: 1 if root.error_message else 0
+            font_size: dp(14)
+            color: 1, 1, 1, 1
+            halign: "center"
+            valign: "middle"
+            text_size: self.width, None
+            background_color: 0.8, 0.1, 0.1, 1
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        
+        # Form container
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: dp(15)
+            padding: dp(10)
+            size_hint_y: None
+            height: dp(250)
+            canvas.before:
+                Color:
+                    rgba: 0.9, 0.9, 0.9, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]
+            
+            Label:
+                text: "Verify your identity to continue"
+                font_size: dp(16)
+                bold: True
+                color: 0.1, 0.4, 0.1, 1  # Dark green text
+                size_hint_y: None
+                height: dp(30)
+                halign: "center"
+            
+            # Phone number input
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: dp(70)
+                spacing: dp(5)
+                
+                Label:
+                    text: "Phone Number"
+                    font_size: dp(14)
+                    color: 0.1, 0.3, 0.1, 1  # Light dark green text
+                    size_hint_y: None
+                    height: dp(20)
+                    halign: "left"
+                    text_size: self.size
+                
+                TextInput:
+                    id: phone_input
+                    hint_text: "Enter your phone number"
+                    multiline: False
+                    size_hint_y: None
+                    height: dp(40)
+                    padding: dp(10), dp(10)
+                    background_color: 1, 1, 1, 1
+                    foreground_color: 0.1, 0.4, 0.1, 1  # Dark green text
+                    cursor_color: 0.1, 0.4, 0.1, 1  # Dark green cursor
+            
+            # Password input
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: dp(70)
+                spacing: dp(5)
+                
+                Label:
+                    text: "Password"
+                    font_size: dp(14)
+                    color: 0.1, 0.3, 0.1, 1  # Light dark green text
+                    size_hint_y: None
+                    height: dp(20)
+                    halign: "left"
+                    text_size: self.size
+                
+                TextInput:
+                    id: password_input
+                    hint_text: "Enter your password"
+                    multiline: False
+                    password: True
+                    size_hint_y: None
+                    height: dp(40)
+                    padding: dp(10), dp(10)
+                    background_color: 1, 1, 1, 1
+                    foreground_color: 0.1, 0.4, 0.1, 1  # Dark green text
+                    cursor_color: 0.1, 0.4, 0.1, 1  # Dark green cursor
+            
+            # Submit button
+            Button:
+                text: "TERMINATE ACCOUNT"
+                font_size: dp(16)
+                bold: True
+                size_hint_y: None
+                height: dp(50)
+                background_normal: ''
+                background_color: 0.1, 0.4, 0.1, 1  # Dark green background
+                on_release: root.attempt_termination()
+        
+        Widget:
+            # Spacer
+            size_hint_y: 1

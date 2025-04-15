@@ -1,0 +1,162 @@
+#:kivy 2.2.1
+
+# Color definitions
+#:set primary_color (0.2, 0.6, 0.3, 1)  # Dark green
+#:set secondary_color (0.3, 0.7, 0.4, 1)  # Light green
+#:set text_color (1, 1, 1, 1)  # White
+#:set success_color (0.2, 0.8, 0.2, 1)  # Green
+#:set error_color (0.8, 0.2, 0.2, 1)  # Red
+
+# Custom widget definitions
+<CustomTextInput@TextInput>:
+    background_color: (1, 1, 1, 1)
+    foreground_color: (0, 0, 0, 1)
+    cursor_color: (0, 0, 0, 1)
+    padding: [10, 10, 10, 10]
+    font_size: '16sp'
+    multiline: False
+    size_hint_y: None
+    height: '40dp'
+
+<CustomButton@Button>:
+    background_color: primary_color
+    color: text_color
+    size_hint_y: None
+    height: '40dp'
+    font_size: '16sp'
+    bold: True
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [5]
+
+<ProfileViewScreen>:
+    canvas.before:
+        Color:
+            rgba: primary_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '20dp'
+        spacing: '20dp'
+
+        AsyncImage:
+            id: profile_image
+            source: 'Safinity/assets/profile_icon.png'
+            size_hint: None, None
+            size: dp(120), dp(120)
+            pos_hint: {'center_x': 0.5}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text: 'Your Profile'
+            font_size: '32sp'
+            size_hint_y: None
+            height: '60dp'
+            color: text_color
+            bold: True
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '10dp'
+            size_hint_y: None
+            height: self.minimum_height
+            pos_hint: {'center_y': 0.5}
+
+            Label:
+                text: 'First Name'
+                color: text_color
+                size_hint_y: None
+                height: '30dp'
+                halign: 'left'
+                text_size: self.size
+
+            TextInput:
+                id: first_name_input
+                hint_text: 'Enter your first name'
+                readonly: not root.edit_mode
+                background_color: (0.95, 0.95, 0.95, 1) if self.readonly else (1, 1, 1, 1)
+                foreground_color: (0, 0, 0, 1)
+                cursor_color: (0, 0, 0, 1)
+                padding: [10, 10, 10, 10]
+                font_size: '16sp'
+                multiline: False
+                size_hint_y: None
+                height: '40dp'
+
+            Label:
+                text: 'Last Name'
+                color: text_color
+                size_hint_y: None
+                height: '30dp'
+                halign: 'left'
+                text_size: self.size
+
+            TextInput:
+                id: last_name_input
+                hint_text: 'Enter your last name'
+                readonly: not root.edit_mode
+                background_color: (0.95, 0.95, 0.95, 1) if self.readonly else (1, 1, 1, 1)
+                foreground_color: (0, 0, 0, 1)
+                cursor_color: (0, 0, 0, 1)
+                padding: [10, 10, 10, 10]
+                font_size: '16sp'
+                multiline: False
+                size_hint_y: None
+                height: '40dp'
+
+            Widget:
+                size_hint_y: None
+                height: '20dp'
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: '48dp'
+                spacing: '10dp'
+
+                Button:
+                    text: 'Save Changes' if root.edit_mode else 'Edit Profile'
+                    background_color: success_color if root.edit_mode else primary_color
+                    color: text_color
+                    size_hint_y: None
+                    height: '40dp'
+                    font_size: '16sp'
+                    bold: True
+                    on_release: root.toggle_edit_mode()
+
+                Button:
+                    text: 'Cancel'
+                    background_color: error_color
+                    color: text_color
+                    size_hint_y: None
+                    height: '40dp'
+                    font_size: '16sp'
+                    bold: True
+                    opacity: 1 if root.edit_mode else 0
+                    disabled: not root.edit_mode
+                    on_release: root.cancel_edit()
+
+            Widget:
+                size_hint_y: None
+                height: '20dp'
+
+            Button:
+                text: 'Back'
+                background_color: secondary_color
+                color: text_color
+                size_hint_y: None
+                height: '40dp'
+                font_size: '16sp'
+                bold: True
+                on_release: root.back_to_welcome()
+
+        Widget:
+            size_hint_y: 0.3 

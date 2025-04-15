@@ -1,0 +1,270 @@
+#:kivy 2.0.0
+#:import utils kivy.utils
+
+<PermissionsScreen>:
+    name: 'permissions'
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(15)
+        
+        # Logo and Title Section (Fixed at top)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: dp(200)
+            spacing: dp(10)
+            
+            AsyncImage:
+                source: 'Safinity/assets/logo.png'
+                size_hint: None, None
+                size: dp(100), dp(100)
+                pos_hint: {'center_x': 0.5}
+                allow_stretch: True
+                keep_ratio: True
+            
+            Label:
+                text: 'Safinity'
+                font_size: '32sp'
+                bold: True
+                color: 0, 0, 0, 1
+                size_hint_y: None
+                height: '40dp'
+                pos_hint: {'center_x': 0.5}
+            
+            Label:
+                text: 'App Permissions'
+                font_size: '18sp'
+                color: 0.223, 0.510, 0.478, 1
+                size_hint_y: None
+                height: '30dp'
+                pos_hint: {'center_x': 0.5}
+
+        # Scrollable Permissions Section
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            size_hint_y: 0.7
+            
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(20)
+                size_hint_y: None
+                height: self.minimum_height
+                padding: [0, 10, 0, 10]
+                
+                # Location Permission
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: dp(100)
+                    spacing: dp(10)
+                    padding: dp(15)
+                    canvas.before:
+                        Color:
+                            rgba: 0.95, 0.95, 0.95, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15]
+                    
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint_x: 0.7
+                        spacing: dp(5)
+                        
+                        Label:
+                            text: 'Location Permission'
+                            font_size: '18sp'
+                            bold: True
+                            color: 0.223, 0.510, 0.478, 1
+                            size_hint_y: None
+                            height: dp(30)
+                            halign: 'left'
+                            text_size: self.width, None
+                        
+                        Label:
+                            text: 'Required for emergency location sharing and tracking'
+                            font_size: '14sp'
+                            color: 0, 0, 0, 0.7
+                            size_hint_y: None
+                            height: dp(40)
+                            text_size: self.width, None
+                            halign: 'left'
+                    
+                    Button:
+                        id: location_button
+                        text: root.location_permission
+                        size_hint: (0.3, 0.6)
+                        pos_hint: {'center_y': 0.5}
+                        background_normal: ''
+                        background_color: [0.223, 0.510, 0.478, 1] if root.location_permission != 'NOT_ALLOWED' else [0.8, 0.2, 0.2, 1]
+                        color: 1, 1, 1, 1
+                        on_release: root.show_permission_options('location')
+                
+                # Contacts Permission
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: dp(100)
+                    spacing: dp(10)
+                    padding: dp(15)
+                    canvas.before:
+                        Color:
+                            rgba: 0.95, 0.95, 0.95, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15]
+                    
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint_x: 0.7
+                        spacing: dp(5)
+                        
+                        Label:
+                            text: 'Contacts Permission'
+                            font_size: '18sp'
+                            bold: True
+                            color: 0.223, 0.510, 0.478, 1
+                            size_hint_y: None
+                            height: dp(30)
+                            halign: 'left'
+                            text_size: self.width, None
+                        
+                        Label:
+                            text: 'Required for accessing emergency contacts and sending alerts'
+                            font_size: '14sp'
+                            color: 0, 0, 0, 0.7
+                            size_hint_y: None
+                            height: dp(40)
+                            text_size: self.width, None
+                            halign: 'left'
+                    
+                    Button:
+                        id: contacts_button
+                        text: root.contacts_permission
+                        size_hint: (0.3, 0.6)
+                        pos_hint: {'center_y': 0.5}
+                        background_normal: ''
+                        background_color: [0.223, 0.510, 0.478, 1] if root.contacts_permission != 'NOT_ALLOWED' else [0.8, 0.2, 0.2, 1]
+                        color: 1, 1, 1, 1
+                        on_release: root.show_permission_options('contacts')
+                
+                # Storage Permission
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: dp(100)
+                    spacing: dp(10)
+                    padding: dp(15)
+                    canvas.before:
+                        Color:
+                            rgba: 0.95, 0.95, 0.95, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15]
+                    
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint_x: 0.7
+                        spacing: dp(5)
+                        
+                        Label:
+                            text: 'Storage Permission'
+                            font_size: '18sp'
+                            bold: True
+                            color: 0.223, 0.510, 0.478, 1
+                            size_hint_y: None
+                            height: dp(30)
+                            halign: 'left'
+                            text_size: self.width, None
+                        
+                        Label:
+                            text: 'Required for saving emergency data and user information'
+                            font_size: '14sp'
+                            color: 0, 0, 0, 0.7
+                            size_hint_y: None
+                            height: dp(40)
+                            text_size: self.width, None
+                            halign: 'left'
+                    
+                    Button:
+                        id: storage_button
+                        text: root.storage_permission
+                        size_hint: (0.3, 0.6)
+                        pos_hint: {'center_y': 0.5}
+                        background_normal: ''
+                        background_color: [0.223, 0.510, 0.478, 1] if root.storage_permission != 'NOT_ALLOWED' else [0.8, 0.2, 0.2, 1]
+                        color: 1, 1, 1, 1
+                        on_release: root.show_permission_options('storage')
+                
+                # Bluetooth Permission
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: dp(100)
+                    spacing: dp(10)
+                    padding: dp(15)
+                    canvas.before:
+                        Color:
+                            rgba: 0.95, 0.95, 0.95, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15]
+                    
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint_x: 0.7
+                        spacing: dp(5)
+                        
+                        Label:
+                            text: 'Bluetooth Permission'
+                            font_size: '18sp'
+                            bold: True
+                            color: 0.223, 0.510, 0.478, 1
+                            size_hint_y: None
+                            height: dp(30)
+                            halign: 'left'
+                            text_size: self.width, None
+                        
+                        Label:
+                            text: 'Required for connecting to emergency devices and accessories'
+                            font_size: '14sp'
+                            color: 0, 0, 0, 0.7
+                            size_hint_y: None
+                            height: dp(40)
+                            text_size: self.width, None
+                            halign: 'left'
+                    
+                    Button:
+                        id: bluetooth_button
+                        text: root.bluetooth_permission
+                        size_hint: (0.3, 0.6)
+                        pos_hint: {'center_y': 0.5}
+                        background_normal: ''
+                        background_color: [0.223, 0.510, 0.478, 1] if root.bluetooth_permission != 'NOT_ALLOWED' else [0.8, 0.2, 0.2, 1]
+                        color: 1, 1, 1, 1
+                        on_release: root.show_permission_options('bluetooth')
+        
+        # Continue Button
+        Button:
+            text: 'CONTINUE'
+            size_hint: (None, None)
+            size: dp(200), dp(50)
+            pos_hint: {'center_x': 0.5}
+            background_normal: ''
+            background_color: 0.223, 0.510, 0.478, 1
+            color: 1, 1, 1, 1
+            font_size: '18sp'
+            bold: True
+            on_release: root.on_continue_press()

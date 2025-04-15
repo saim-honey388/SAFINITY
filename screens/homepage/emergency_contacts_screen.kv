@@ -1,0 +1,85 @@
+<EmergencyContactSection>:
+    name_input: name_input
+    phone_input: phone_input
+    relationship_spinner: relationship_spinner
+    
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: '10dp'
+        padding: '10dp'
+        
+        TextInput:
+            id: name_input
+            hint_text: 'Contact Name'
+            multiline: False
+            size_hint_y: None
+            height: '40dp'
+        
+        TextInput:
+            id: phone_input
+            hint_text: 'Phone Number'
+            multiline: False
+            size_hint_y: None
+            height: '40dp'
+            input_type: 'number'
+        
+        Spinner:
+            id: relationship_spinner
+            text: 'Select Relationship'
+            values: root.relationship_options
+            size_hint_y: None
+            height: '40dp'
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: '40dp'
+            spacing: '10dp'
+            
+            Button:
+                text: 'Save'
+                on_release: app.root.current_screen.save_contact(root)
+                background_color: 0.2, 0.7, 0.3, 1
+            
+            Button:
+                text: 'Delete'
+                on_release: app.root.current_screen.delete_contact(root)
+                background_color: 0.8, 0.2, 0.2, 1
+
+<EmergencyContactsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '15dp'
+        spacing: '15dp'
+        
+        Label:
+            text: 'Emergency Contacts'
+            size_hint_y: None
+            height: '50dp'
+            font_size: '24sp'
+        
+        ScrollView:
+            BoxLayout:
+                id: contacts_container
+                orientation: 'vertical'
+                spacing: '15dp'
+                size_hint_y: None
+                height: self.minimum_height
+                
+                EmergencyContactSection:
+                    section_id: 1
+                
+                EmergencyContactSection:
+                    section_id: 2
+                
+                EmergencyContactSection:
+                    section_id: 3
+        
+        Button:
+            text: '+'
+            size_hint: None, None
+            size: '50dp', '50dp'
+            pos_hint: {'center_x': 0.5}
+            on_release: root.add_section()
+            background_color: 0.2, 0.6, 0.8, 1
+            disabled: len(root.sections) >= root.max_sections
